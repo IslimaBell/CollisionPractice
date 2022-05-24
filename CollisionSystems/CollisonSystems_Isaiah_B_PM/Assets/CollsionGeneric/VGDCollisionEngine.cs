@@ -126,4 +126,25 @@ public static class VGDCollisionEngine
         float d = Mathf.Sqrt(dx * dx + dy * dy);
         return d;
     }
+
+    public static bool LineRect(float e1x, float e1y, float e2x, float e2y, float boxTop, float boxLeft, float boxRight, float boxBottom)
+    {
+        float lineLength = distance(e1x, e1y, e2x, e2y);
+
+
+        return false;
+    }
+
+    public static bool LineLine(float x1, float x2,float x3,float x4, float y1,float y2,float y3,float y4)
+    {
+        float uA = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+        float uB = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+
+        if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
